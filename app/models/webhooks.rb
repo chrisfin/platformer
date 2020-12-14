@@ -1,26 +1,24 @@
 module Webhooks
-	class PaymentIntentSucceeded
+	class ChargeSucceeded
 		def call(event)
-			webhook_payment_intent = event.data.object
-			#existing_payment_intent = Charge.find_by(stripe_payment_intent_id: webhook_payment_intent.id)
-			#if existing_payment_intent.nil?
-				new_payment_intent = Charge.new
-				new_payment_intent.stripe_payment_intent_id = webhook_payment_intent.id
-				new_payment_intent.account_id = Account.find_by(stripe_id: webhook_payment_intent.transfer_data.destination).id
-				new_payment_intent.application_fee_amount = webhook_payment_intent.application_fee_amount
-				
-				# Determine if Connect platform impelmented transfer data or application fee
-				if (defined? webhook_payment_intent.amount)
-					new_payment_intent.amount = webhook_payment_intent.amount
-				end
-				
-				if (defined? webhook_payment_intent.transfer_data.amount)
-					new_payment_intent.transfer_data_amount = webhook_payment_intent.transfer_data.amount
-				end
+			webhook_charge = event.data.object
 
-				new_payment_intent.save
-			#else
-			#end
+			new_charge = Charge.new
+
+			new_charge.stripe_payment_intent_id = webhook_charge.id
+			new_charge.amount = webhook_charge.amount
+			new_charge.account_id = Account.find_by(stripe_id: webhook_charge.transfer_data.destination).id
+
+			# Determine if Connect platform impelmented transfer data or application fee
+			if (defined? webhook_charge.application_fee_amount)
+				new_charge.application_fee_amount = webhook_charge.application_fee_amount
+			end
+			
+			if (defined? webhook_charge.transfer_data.amount)
+				new_charge.transfer_data_amount = webhook_charge.transfer_data.amount
+			end
+
+			new_charge.save
 		end
 	end
 end

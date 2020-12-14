@@ -15,10 +15,5 @@ StripeEvent.signing_secrets = [
 ]
 
 StripeEvent.configure do |events|
-  events.subscribe 'payment_intent.succeeded', Webhooks::PaymentIntentSucceeded.new
-  # events.subscribe 'charge.pending', Webhooks::ChargePending.new
-  # events.subscribe 'charge.failed', Webhooks::ChargeFailed.new
-  # events.subscribe 'account.updated', Webhooks::AccountUpdated.new
-  # events.subscribe 'account.external_account.created', Webhooks::AccountExternalAccountCreated.new
-  # events.subscribe 'account.external_account.updated', Webhooks::AccountExternalAccountUpdated.new
+  events.subscribe 'charge.succeeded', Webhooks::ChargeSucceeded.new
 end
