@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_14_191531) do
+ActiveRecord::Schema.define(version: 2020_12_14_232246) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "stripe_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_12_14_191531) do
     t.float "transfer_data_amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "stripe_payment_intent_id"
+    t.string "stripe_charge_id"
   end
 
   create_table "ratecards", force: :cascade do |t|

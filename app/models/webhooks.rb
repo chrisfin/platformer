@@ -5,7 +5,7 @@ module Webhooks
 
 			new_charge = Charge.new
 
-			new_charge.stripe_payment_intent_id = webhook_charge.id
+			new_charge.stripe_charge_id = webhook_charge.id
 			new_charge.amount = webhook_charge.amount
 			new_charge.account_id = Account.find_by(stripe_id: webhook_charge.transfer_data.destination).id
 
