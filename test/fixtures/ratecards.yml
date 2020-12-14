@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  plan: MyString
+  name: MyString
+  blended_fixed: 1.5
+  blended_variable: 1.5
+
+two:
+  plan: MyString
+  name: MyString
+  blended_fixed: 1.5
+  blended_variable: 1.5

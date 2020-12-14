@@ -1,0 +1,2 @@
+class Ratecard < ApplicationRecord
+end

@@ -1,0 +1,31 @@
+<h1>Rate card</h1>
+
+<div>
+	<div>
+		<%= form_with(model: @ratecard, local: true) do |f| %>
+			<%= render "shared/error_messages", object: f.object %>	
+
+			<p>
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+			</p>
+
+			<p>
+				<%= f.label :plan %>
+				<%= f.select :plan, ["Blended", "IC+"] %>
+			</p>
+
+			<p>
+				<%= f.label :blended_fixed %>
+				<%= f.text_field :blended_fixed %>
+			</p>
+
+			<p>
+				<%= f.label :blended_variable %>
+				<%= f.text_field :blended_variable %>
+			</p>
+
+			<%= f.submit "Create ratecard" %>
+		<% end %>
+	</div>
+</div>

@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :charges, only: [:new, :secret] 
+  root 'static_pages#home'
+  mount StripeEvent::Engine, at: 'webhooks/stripe'
+
+  resources :users
+  resources :ratecards
+  resources :charges, only: [:new] 
+  resources :accounts, only: [:new, :create] 
+
 end

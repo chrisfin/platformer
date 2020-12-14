@@ -9,6 +9,7 @@
     }
   };
   var card = elements.create("card", { style: style });
+  
   card.mount("#card-element");
 
   // Stripe Elements errors
