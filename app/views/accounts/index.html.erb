@@ -1,0 +1,22 @@
+<h1>Accounts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Stripe Id</th>
+      <th>Ratecard Id</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accounts.each do |account| %>
+      <tr>
+        <td><%= account.id %></td>
+        <td><%= account.stripe_id %></td>
+        <td><%= account.ratecard_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -37,4 +37,8 @@ class AccountsController < ApplicationController
 
 	def create
 	end
+
+	def index
+		@accounts = Account.all
+	end
 end

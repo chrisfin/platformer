@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_14_232246) do
+ActiveRecord::Schema.define(version: 2020_12_15_000414) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "stripe_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "ratecard_id"
   end
 
   create_table "charges", force: :cascade do |t|
